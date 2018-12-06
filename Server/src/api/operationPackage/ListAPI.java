@@ -33,7 +33,7 @@ public class ListAPI extends OperationPackage<ListApiModule> {
         if (!data.has(FILE_UEL_KEY))
             return ILLEGAL_DATA;
 
-        listApiModule = ListApiModule.create(data);
+        listApiModule = ListApiModule.create(data, userID);
         return checkPermeation(listApiModule);
     }
 

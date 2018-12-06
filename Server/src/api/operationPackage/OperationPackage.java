@@ -12,6 +12,8 @@ public abstract class OperationPackage<T extends APIModule> extends API<T> {
     public static final String USER_KEY = "user";
     public static final String FILE_UEL_KEY = "file_url";
 
+    protected long userID;
+
     @Override
     public int checkPermeation(JSONObject data) {
         int superExitCode = super.checkPermeation(data);
@@ -22,7 +24,7 @@ public abstract class OperationPackage<T extends APIModule> extends API<T> {
         if (!data.has(TOKEN_KEY) || !data.has(USER_KEY))
             return ILLEGAL_DATA;
         // TODO: 12/6/2018 check token and user name assignment
-
+        // TODO: 12/6/2018 after check set user id
         return OK_RESPONSE;
     }
 }

@@ -1,7 +1,6 @@
 package server;
 
 import Utility.PublicValues;
-import api.authenticationPackage.LoginAPI;
 import api.fileOperationPackage.DownloadAIP;
 import api.fileOperationPackage.UploadAPI;
 import appModule.User;
@@ -24,7 +23,7 @@ public class MainServer extends NanoHTTPD {
         System.out.println("Running!");
         DataManager dataManager= DataManagerIMP.GetDataManger();
         dataManager.getUserDao().add(new User(-1,"test","1234","5465",new Date(),new Date()));
-
+        System.out.println("database end");
     }
 
     @Override
@@ -33,7 +32,7 @@ public class MainServer extends NanoHTTPD {
         JSONObject data = new JSONObject(session.getHeaders());
         switch (session.getMethod()){
             case LOGIN:
-                LoginAPI loginAPI = new LoginAPI();
+                api.authenticationPackage.LoginAPI loginAPI = new api.authenticationPackage.LoginAPI();
                 return newFixedLengthResponse(loginAPI.call(data).toString());
 
             case GET:

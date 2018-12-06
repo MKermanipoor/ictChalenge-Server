@@ -11,6 +11,8 @@ public abstract class FileOperationPackage<T extends APIModule> extends API<T> {
     public static final String TOKEN_KEY = "token";
     public static final String USER_KEY = "user";
 
+    protected long userID;
+
     @Override
     public int checkPermeation(JSONObject data) {
         int superExitCode = super.checkPermeation(data);

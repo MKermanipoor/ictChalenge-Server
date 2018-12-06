@@ -2,14 +2,12 @@ package server;
 
 import Utility.PublicValues;
 import api.API;
-import api.APIInterface;
 import api.authenticationpackage.LoginAPI;
 import fi.iki.elonen.NanoHTTPD;
 import org.json.JSONObject;
 
 import java.io.IOException;
 
-import static Utility.PublicValues.*;
 
 public class MainServer extends NanoHTTPD {
 
@@ -39,7 +37,7 @@ public class MainServer extends NanoHTTPD {
         try {
             new MainServer();
         } catch (IOException e) {
-            System.err.println("Cant start server");
+            System.err.println("Cant start server!");
         }
     }
 }

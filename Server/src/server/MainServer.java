@@ -3,10 +3,14 @@ package server;
 import Utility.PublicValues;
 import api.API;
 import api.authenticationPackage.LoginAPI;
+import appModule.User;
+import database.dataManager.DataManager;
+import database.dataManager.DataManagerIMP;
 import elonen.NanoHTTPD;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Date;
 
 
 public class MainServer extends NanoHTTPD {
@@ -15,6 +19,9 @@ public class MainServer extends NanoHTTPD {
         super(PublicValues.SERVER_PORT);
         start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
         System.out.println("Running!");
+        DataManager dataManager= DataManagerIMP.GetDataManger();
+        dataManager.getUserDao().add(new User(-1,"test","1234","5465",new Date(),new Date()));
+
     }
 
     @Override

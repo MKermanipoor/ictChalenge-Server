@@ -2,7 +2,6 @@ package database.dao;
 
 import appModule.User;
 import database.dataHelper.tables.UserTable;
-import groovy.transform.builder.InitializerStrategy;
 
 import java.sql.Connection;
 

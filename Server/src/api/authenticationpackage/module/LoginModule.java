@@ -1,7 +1,7 @@
-package api.authenticationpackage.module;
+package api.authenticationPackage.module;
 
 import api.APIModule;
-import api.authenticationpackage.LoginAPI;
+import api.authenticationPackage.LoginAPI;
 import org.json.JSONObject;
 
 public class LoginModule extends APIModule {

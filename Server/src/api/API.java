@@ -8,6 +8,7 @@ public abstract class API<T extends APIModule> extends Thread implements APIInte
 
     @Override
     public int checkPermeation(JSONObject data) {
+        // TODO: 12/6/2018 is something to check for all api ?
         return OK_RESPONSE;
     }
 

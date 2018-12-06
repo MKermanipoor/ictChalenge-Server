@@ -1,7 +1,7 @@
-package api.authenticationpackage;
+package api.authenticationPackage;
 
-import api.authenticationpackage.module.LoginModule;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import api.ApiErrorCodeParser;
+import api.authenticationPackage.module.LoginModule;
 import org.json.JSONObject;
 
 import static api.APIPublicValue.*;
@@ -15,16 +15,17 @@ public class LoginAPI extends AuthenticationPackage<LoginModule> {
 
     @Override
     public JSONObject call(JSONObject data) {
-        int checkPermeationCode = super.checkPermeation(data);
+        int checkPermeationCode = checkPermeation(data);
         if (checkPermeationCode != OK_RESPONSE)
-            return new JSONObject();
+            return ApiErrorCodeParser.parseToJson(checkPermeationCode);
 
-        // TODO: 12/6/2018 check user data and make json
-        return new JSONObject();
+        return workApi(loginModule);
     }
 
     @Override
     public JSONObject workApi(LoginModule module) {
+        // TODO: 12/6/2018 check user data and make json
+
         return new JSONObject();
     }
 

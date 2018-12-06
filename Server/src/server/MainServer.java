@@ -2,8 +2,8 @@ package server;
 
 import Utility.PublicValues;
 import api.API;
-import api.authenticationpackage.LoginAPI;
-import fi.iki.elonen.NanoHTTPD;
+import api.authenticationPackage.LoginAPI;
+import elonen.NanoHTTPD;
 import org.json.JSONObject;
 
 import java.io.IOException;

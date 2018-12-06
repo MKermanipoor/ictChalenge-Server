@@ -1,4 +1,4 @@
-package api.authenticationpackage;
+package api.authenticationPackage;
 
 import api.APIModule;
 import org.json.JSONObject;

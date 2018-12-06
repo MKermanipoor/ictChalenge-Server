@@ -2,7 +2,11 @@ package api.operationPackage;
 
 import api.ApiErrorCodeParser;
 import api.operationPackage.module.ListApiModule;
+import database.dataHelper.tables.DirTable;
+import database.dataHelper.tables.FileTable;
 import org.json.JSONObject;
+
+import static Utility.PublicValues.*;
 
 import static api.APIPublicValue.*;
 
@@ -20,7 +24,9 @@ public class ListAPI extends OperationPackage<ListApiModule> {
 
     @Override
     public JSONObject workApi(ListApiModule module) {
-        // TODO: 12/6/2018 query to db
+        // TODO: 12/6/2018 change this code to db
+        // TODO: 12/6/2018 for each file parent and send it
+//        DATA_MaMANAGER.getDirDao().search(DirTable.PARENT_ID_COLUMN + " = " + module.getDirectoryID(), null);
         return new JSONObject();
     }
 

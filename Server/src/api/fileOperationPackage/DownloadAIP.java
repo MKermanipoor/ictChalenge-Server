@@ -8,6 +8,7 @@ import static api.APIPublicValue.*;
 
 public class DownloadAIP extends FileOperationPackage<DownlandModule> {
     public final static String FILE_URL = "file_url";
+    public static final String MIME_TYPE_KEY = "mime_type";
 
     private DownlandModule downlandModule = null;
     @Override

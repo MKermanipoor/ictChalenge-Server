@@ -30,24 +30,27 @@ public class MainServer extends NanoHTTPD {
                 return newFixedLengthResponse(loginAPI.call(data).toString());
 
             case GET:
-                DownloadAIP uploadAPI = new DownloadAIP();
-                JSONObject uploadApiResult = uploadAPI.call(data);
-                String filePathUpload  = uploadApiResult.optString(UploadAPI.FILE_URL_KEY);
-                String fileMimeType = uploadApiResult.optString(UploadAPI.MIME_TYPE_KEY);
+                DownloadAIP downloadAIP = new DownloadAIP();
+                JSONObject downloadApiResult = downloadAIP.call(data);
+                String filePathDownload  = downloadApiResult.optString(DownloadAIP.FILE_URL);
+                String fileMimeTypeDownload = downloadApiResult.optString(DownloadAIP.MIME_TYPE_KEY);
                 FileInputStream fileInputStream = null;
 
                 try {
-                    fileInputStream = new FileInputStream(filePathUpload);
+                    fileInputStream = new FileInputStream(filePathDownload);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 if (fileInputStream == null)
                     return newFixedLengthResponse("read file error");
 
-                return new NanoHTTPD.Response(Response.Status.OK, fileMimeType, fileInputStream, -1);
+                return new NanoHTTPD.Response(Response.Status.OK, fileMimeTypeDownload, fileInputStream, -1);
 
             case PUT:
-
+//                UploadAPI uploadAPI = new UploadAPI();
+//                JSONObject uploadApiResult = uploadAPI.call(data);
+//                String filePathUplaod = uploadApiResult.optString(UploadAPI.FILE_URL_KEY);
+//                String
 
             default:
                 return newFixedLengthResponse("");

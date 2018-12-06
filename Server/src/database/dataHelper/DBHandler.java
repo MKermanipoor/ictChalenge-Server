@@ -10,7 +10,7 @@ import java.sql.*;
  */
 public class DBHandler {
     private static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_PATH="jdbc:sqlite:"+System.getProperty("user.dir")+"/"+"database";
+    private static final String DATABASE_PATH="jdbc:sqlite:"+System.getProperty("user.dir")+"/"+"database";
     private static Connection connection;
     private static Statement statement;
     private static PreparedStatement preparedStatement=null;

@@ -18,7 +18,7 @@ public class DBHandler {
         createNewDatabase();
     //initial();
         try {
-            connection = DriverManager.getConnection(DATABASE_PATH);
+            connection = DriverManager.getConnection(DATABASE_PATH,"root","");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,18 +74,18 @@ public class DBHandler {
 //    }
     public static void createNewDatabase() {
         try {
-            Class.forName("org.sqlite.JDBC");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
         // url = "jdbc:sqlite:/Users/saeidbahmani/Desktop/nazarie/dbtest/" + fileName;
 
-        try (Connection conn = DriverManager.getConnection(DATABASE_PATH)) {
+        try (Connection conn = DriverManager.getConnection(DATABASE_PATH,"root","")) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("A new database has been created.");
+//                System.out.println("The driver name is " + meta.getDriverName());
+//                System.out.println("A new database has been created.");
 
 
 

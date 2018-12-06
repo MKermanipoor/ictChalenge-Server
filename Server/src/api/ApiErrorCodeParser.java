@@ -7,7 +7,7 @@ import static api.APIPublicValue.*;
 public abstract class ApiErrorCodeParser {
     public static String parseToString(int errorCode) {
         switch (errorCode) {
-            case ILLEGALE_DATA:
+            case ILLEGAL_DATA:
                 return "data is not correct.";
             default:
                 return "unknown error code";

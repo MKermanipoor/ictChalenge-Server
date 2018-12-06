@@ -1,4 +1,4 @@
-package api.operationPackage;
+package api.fileOperationPackage;
 
 import api.API;
 import api.APIModule;
@@ -7,10 +7,9 @@ import org.json.JSONObject;
 import static api.APIPublicValue.ILLEGAL_DATA;
 import static api.APIPublicValue.OK_RESPONSE;
 
-public abstract class OperationPackage<T extends APIModule> extends API<T> {
+public abstract class FileOperationPackage<T extends APIModule> extends API<T> {
     public static final String TOKEN_KEY = "token";
     public static final String USER_KEY = "user";
-    public static final String FILE_UEL_KEY = "file_url";
 
     @Override
     public int checkPermeation(JSONObject data) {

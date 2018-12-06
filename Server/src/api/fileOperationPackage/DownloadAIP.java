@@ -1,13 +1,12 @@
-package api.operationPackage;
+package api.fileOperationPackage;
 
 import api.ApiErrorCodeParser;
-import api.authenticationPackage.module.LoginModule;
-import api.operationPackage.module.DownlandModule;
+import api.fileOperationPackage.module.DownlandModule;
 import org.json.JSONObject;
 
 import static api.APIPublicValue.*;
 
-public class DownloadAIP extends OperationPackage<DownlandModule> {
+public class DownloadAIP extends FileOperationPackage<DownlandModule> {
     public final static String FILE_URL = "file_url";
 
     private DownlandModule downlandModule = null;

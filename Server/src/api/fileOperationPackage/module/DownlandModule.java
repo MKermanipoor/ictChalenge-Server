@@ -1,7 +1,7 @@
-package api.operationPackage.module;
+package api.fileOperationPackage.module;
 
 import api.APIModule;
-import api.operationPackage.DownloadAIP;
+import api.fileOperationPackage.DownloadAIP;
 import org.json.JSONObject;
 
 public class DownlandModule extends APIModule {
@@ -13,8 +13,8 @@ public class DownlandModule extends APIModule {
         this.userToken = userToken;
     }
 
-    public static DownlandModule create(JSONObject fileUrl) {
-        return new DownlandModule(fileUrl.optString(DownloadAIP.FILE_URL),
-                fileUrl.optString( DownloadAIP.USER_KEY));
+    public static DownlandModule create(JSONObject data) {
+        return new DownlandModule(data.optString(DownloadAIP.FILE_URL),
+                data.optString( DownloadAIP.USER_KEY));
     }
 }

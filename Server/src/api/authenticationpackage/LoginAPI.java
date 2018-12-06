@@ -41,7 +41,7 @@ public class LoginAPI extends AuthenticationPackage<LoginModule> {
 
     public int checkPermeation(LoginModule data) {
         if (data.getPassword() == null || data.getPassword().isEmpty() || data.getUserName() == null || data.getUserName().isEmpty())
-            return ILLEGALE_DATA;
+            return ILLEGAL_DATA;
 
         return OK_RESPONSE;
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../nanohttpd" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/fileupload" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/markdown-plugin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/nanolets" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/samples" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/webserver" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nanohttpd/websocket" charset="UTF-8" />
+  </component>
+</project>

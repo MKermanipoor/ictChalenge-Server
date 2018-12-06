@@ -11,6 +11,7 @@ public class UploadAPI extends FileOperationPackage<UploadModule> {
     private UploadModule uploadModule;
 
     public static final String FILE_URL_KEY = "file_url";
+    public static final String MIME_TYPE_KEY = "mime_type";
 
     @Override
     public JSONObject call(JSONObject data) {

@@ -1,14 +1,17 @@
 package server;
 
 import Utility.PublicValues;
-import api.API;
 import api.authenticationPackage.LoginAPI;
+import api.fileOperationPackage.DownloadAIP;
+import api.fileOperationPackage.UploadAPI;
 import appModule.User;
 import database.dataManager.DataManager;
 import database.dataManager.DataManagerIMP;
 import elonen.NanoHTTPD;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 
@@ -26,17 +29,36 @@ public class MainServer extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-        API api;
+        String result = "";
+        JSONObject data = new JSONObject(session.getHeaders());
         switch (session.getMethod()){
             case LOGIN:
-                api = new LoginAPI();
-                break;
+                LoginAPI loginAPI = new LoginAPI();
+                return newFixedLengthResponse(loginAPI.call(data).toString());
+
+            case GET:
+                DownloadAIP uploadAPI = new DownloadAIP();
+                JSONObject uploadApiResult = uploadAPI.call(data);
+                String filePathUpload  = uploadApiResult.optString(UploadAPI.FILE_URL_KEY);
+                String fileMimeType = uploadApiResult.optString(UploadAPI.MIME_TYPE_KEY);
+                FileInputStream fileInputStream = null;
+
+                try {
+                    fileInputStream = new FileInputStream(filePathUpload);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                if (fileInputStream == null)
+                    return newFixedLengthResponse("read file error");
+
+                return new NanoHTTPD.Response(Response.Status.OK, fileMimeType, fileInputStream, -1);
+
+            case PUT:
+
+
             default:
                 return newFixedLengthResponse("");
         }
-
-        JSONObject result = api.call(new JSONObject(session.getHeaders()));
-        return newFixedLengthResponse(result.toString());
     }
 
 
